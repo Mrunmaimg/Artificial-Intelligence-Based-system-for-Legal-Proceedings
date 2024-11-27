@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Translation Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af',
+                        light: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-1">
+                        <span class="text-2xl font-bold text-primary">LEGAL</span>
+                        <span class="text-2xl font-bold text-secondary">|</span>
+                        <span class="text-2xl font-bold text-secondary">LOGIC</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition">About</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition">Contact</a>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Document Translation Service</h1>
+            <p class="text-sm text-gray-600">Translate your legal documents with high accuracy using our AI-powered solution</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Input Box -->
+            <div class="bg-white rounded-lg shadow-sm p-4">
+                <div class="mb-3">
+                    <h2 class="text-base font-semibold text-gray-900 mb-2">Source Document</h2>
+                    <div class="border-2 border-dashed border-gray-300 hover:border-primary transition-colors duration-300 rounded-lg p-4">
+                        <div class="flex flex-col items-center justify-center space-y-2">
+                            <div class="text-3xl text-gray-400">📄</div>
+                            <p class="text-sm text-gray-600 text-center">Click to upload or drag and drop document</p>
+                            <p class="text-xs text-gray-500">Supported formats: PDF, DOCX, TXT</p>
+                            <input type="file" class="hidden" id="documentFile" accept=".pdf,.docx,.txt">
+                            <p class="text-primary text-sm hidden" id="fileName"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Selection -->
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">From Language</label>
+                        <select class="w-full p-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                            <option>German</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">To Language</label>
+                        <select class="w-full p-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                            <option>Spanish</option>
+                            <option>English</option>
+                            <option>French</option>
+                            <option>German</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="w-full bg-primary text-white px-3 py-1.5 rounded-lg hover:bg-secondary transition-colors duration-300 flex items-center justify-center space-x-2 text-sm">
+                    <span>Translate Document</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Output Box -->
+            <div class="bg-white rounded-lg shadow-sm p-4 border-2 border-primary">
+                <h2 class="text-base font-semibold text-gray-900 mb-2">Translated Document</h2>
+                <div class="h-[200px] p-3 bg-gray-50 rounded-lg mb-3 overflow-y-auto">
+                    <p class="text-gray-500 text-center mt-20 text-sm">Translated document will appear here...</p>
+                </div>
+                <button class="w-full bg-secondary text-white px-3 py-1.5 rounded-lg hover:bg-primary transition-colors duration-300 flex items-center justify-center space-x-2 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    <span>Download Translated Document</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-1 mb-6">
+                        <span class="text-2xl font-bold text-white">LEGAL</span>
+                        <span class="text-2xl font-bold text-gray-400">|</span>
+                        <span class="text-2xl font-bold text-gray-400">LOGIC</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Empowering legal professionals with modern AI technology solutions.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const dropZone = document.querySelector('.border-dashed');
+        const fileInput = document.querySelector('#documentFile');
+        const fileName = document.querySelector('#fileName');
+
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                fileName.classList.remove('hidden');
+                fileName.textContent = `Selected file: ${e.target.files[0].name}`;
+            }
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('border-primary');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('border-primary');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-primary');
+            
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                fileName.classList.remove('hidden');
+                fileName.textContent = `Selected file: ${e.dataTransfer.files[0].name}`;
+            }
+        });
+    </script>
+</body>
+</html>
